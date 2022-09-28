@@ -1,6 +1,6 @@
 import {db} from "../service/firebase-config"
-import { getFirestore, collection, getDocs  } from 'firebase/firestore';
-import React, { useState, useEffect, useRef } from 'react';
+import {  collection, getDocs  } from 'firebase/firestore';
+import React, {  useEffect} from 'react';
 
 
 
@@ -16,6 +16,7 @@ export default function Intitution() {
       
         async function getCities(db) {
           const citiesCol = collection(db, 'institution');
+          console.log(citiesCol)
           const citySnapshot = await getDocs(citiesCol);
           const cityList = citySnapshot.docs.map(doc => doc.data());
           console.log(cityList)
