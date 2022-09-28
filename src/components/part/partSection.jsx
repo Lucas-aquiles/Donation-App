@@ -11,18 +11,29 @@ const ContainerPart= styled.div`
     background-color:${props => props.inputColor || "#0084ff;"};
 
     margin-top: -90px;
+    display: flex;
+    text-align: center;
+    align-items: center;
 
       `
 
+const TextSection= styled.p`
+    /* border:solid */
+    width: 100%;
+font-size:2rem;
+    
 
+
+      `
    
 
 const partSection = (props) => {
-console.log(props)
 
 
   return (
-    <ContainerPart  inputColor={props.inputColor} />
+    <ContainerPart  inputColor={props.inputColor} >
+        <TextSection> {props.text} </TextSection>  
+       </ContainerPart>
   )
 }
 

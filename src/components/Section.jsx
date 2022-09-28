@@ -27,16 +27,16 @@ const Image =styled.div`
 
 const Section = () => {
 
-
-
+const text =  "ONGs"
+const text1="Somos los clientes"
   return (
     <ContainerSection>
         
         
         <Image/>
         <div style={{display:"flex"}}>  
-        <PartSection/>
-        <PartSection inputColor="green" />
+        <PartSection  text= {text}/>
+        <PartSection   text= {text1}  inputColor="green" />
         </div>
 
         </ContainerSection>
