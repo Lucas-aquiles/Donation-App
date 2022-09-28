@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Colors } from '../../styles/theme/Colors';
+import { Colors } from '../styles/theme/Colors';
 import { Link } from "react-router-dom";
 
 
@@ -35,15 +35,6 @@ font-family: 'Caveat', cursive,sans-serif;
     font-weight: bold;
   `;
 
-const NavLink = styled(Link)`
-  padding: 20px;
-  color: white;
-  text-decoration: none;
-  &:hover {
-    color: red;
-    background: blue;
-  }
-`;
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import myImage from '../assets/community.jpg'
-import PartSection from './part/PartSection';
+import PartSection from './PartSection';
 
 
 
