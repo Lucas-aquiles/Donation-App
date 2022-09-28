@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 import myImage from '../assets/community.jpg'
-import PartSection from './part/partSection';
+import PartSection from './part/PartSection';
 
 
 
 const ContainerSection= styled.div`
     /* border:solid */
     width: 100%;
-    height: 100px;
+    height: auto;
    
 `
 const Image =styled.div`
@@ -35,8 +35,8 @@ const text1="Somos los clientes"
         
         <Image/>
         <div style={{display:"flex"}}>  
-        <PartSection  text= {text}/>
-        <PartSection   text= {text1}  inputColor="green" />
+         <PartSection  text= {text}  link={"/institution"}/>
+        <PartSection   text= {text1}  textColor="#f8f9fa"    inputColor="#F08868"  link={"/users"}/>
         </div>
 
         </ContainerSection>

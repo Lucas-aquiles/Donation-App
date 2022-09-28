@@ -7,7 +7,8 @@ import MenuExtension from './menu/MenuExtension';
 const NavBar = styled.div`
     width: 100%;
     height: 5rem;
-    background-color: ${Colors.primary};
+     background: ${Colors.primary};
+;
     position: fixed;
     z-index: 90;
 ;
@@ -15,6 +16,9 @@ const NavBar = styled.div`
 const Title = styled.h1`
     color:${Colors.white};
     font-size: 3rem;
+    font-family: 'Caveat', cursive,sans-serif;
+    margin-left: 50px;
+
 `
 
 
@@ -23,8 +27,7 @@ export const Navbar = () => {
 
   return (
     <NavBar>
-        Navbar
-        <Title> Hugs</Title>
+        <Title> Hugs </Title>
         <MenuHambur/>
         {/* <MenuExtension/> */}
         </NavBar>
