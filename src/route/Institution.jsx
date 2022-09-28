@@ -8,7 +8,8 @@ import React, {  useEffect} from 'react';
 
 
 export default function Intitution() {
-
+console.log(process.env.REACT_APP_API_KEY,
+  )
 
     useEffect(() => {
         getCities(db)
