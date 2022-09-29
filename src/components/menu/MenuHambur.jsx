@@ -1,8 +1,6 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { contextApp } from '../../context/Context';
-
-
+import { contextApp } from "../../context/Context";
 
 const ContainerMenu = styled.div`
   /* border:solid */
@@ -41,13 +39,13 @@ const Linea2 = styled(Linea)`
 `;
 
 const MenuHambur = () => {
-  const { setInfo } = useContext(contextApp)
-
+  const { value } = useContext(contextApp);
+  const setInfo = value[1];
   const [state, setState] = useState(false);
 
   function myFunction() {
     setState(!state);
-    setInfo(   !state)
+    setInfo(!state);
   }
 
   return (
