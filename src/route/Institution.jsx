@@ -1,7 +1,7 @@
 import {db} from "../service/firebase-config"
 import {  collection, getDocs  } from 'firebase/firestore';
 import React, {  useEffect} from 'react';
-import Register from "../components/form";
+import Building from "../pages/Building";
 
 
 
@@ -24,11 +24,7 @@ export default function Intitution() {
 
     return (
       <>
-        <h2>Institution</h2>
-        <>registrarse</>
-        <>loguearse</>
-
-        <Register/>
+       <Building/>
       </>
     );
   }
