@@ -1,33 +1,34 @@
 import {db} from "../service/firebase-config"
 import {  collection, getDocs  } from 'firebase/firestore';
 import React, {  useEffect} from 'react';
-
+import Register from "../components/form";
 
 
 
 
 
 export default function Intitution() {
-console.log(process.env.REACT_APP_API_KEY,
-  )
+  
 
     useEffect(() => {
-        getCities(db)
+        getData(db)
         }, []);
       
-        async function getCities(db) {
-          const citiesCol = collection(db, 'institution');
-          console.log(citiesCol)
-          const citySnapshot = await getDocs(citiesCol);
-          const cityList = citySnapshot.docs.map(doc => doc.data());
-          console.log(cityList)
-          return cityList;
+        async function getData(db) {
+          const institutionCol = collection(db, 'institution');
+          const institutionSnapshot = await getDocs(institutionCol);
+          const institutionList = institutionSnapshot.docs.map(doc => doc.data());
+          return institutionList;
         }
 
 
     return (
       <>
         <h2>Institution</h2>
+        <>registrarse</>
+        <>loguearse</>
+
+        <Register/>
       </>
     );
   }

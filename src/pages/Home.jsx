@@ -13,7 +13,7 @@ import Aside from "../components/Aside";
 const HomeContainer = styled.div`
   max-width: 100%;
   height: auto;
-  background-color: ${Colors.secundary};
+  /* background-color: ${Colors.secundary}; */
   transition: 0.4s ease-out;
 `;
 

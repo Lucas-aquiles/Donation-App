@@ -9,13 +9,14 @@ const ContainerPart= styled.div`
     width: 50%;
     height: 200px;
     background-color:${props => props.inputColor || Colors.primary};
-
+opacity: 0.97;
     margin-top: -90px;
     display: flex;
     text-align: center;
     align-items: center;
     transition: .5s ease;
   backface-visibility: hidden;
+
       `
 
 const TextSection= styled.p`
@@ -31,14 +32,17 @@ font-family: 'Caveat', cursive,sans-serif;
   
   
   const StyledLink = styled(Link)`
-    color: palevioletred;
-    font-weight: bold;
+
+    margin: 0px auto;
+    position: relative;
+    margin-top:50px;
+
   `;
 
 
 
 
-const partSection = (props) => {
+const PartSection = (props) => {
 
 
   return (
@@ -50,4 +54,4 @@ const partSection = (props) => {
   )
 }
 
-export default partSection
+export default PartSection

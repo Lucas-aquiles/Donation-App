@@ -8,7 +8,8 @@ const NavBar = styled.div`
     width: 100%;
     height: 5rem;
      background: ${Colors.primary};
-;
+
+    opacity: 0.9;
     position: fixed;
     z-index: 90;
 ;

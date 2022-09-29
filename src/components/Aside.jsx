@@ -7,6 +7,8 @@ const AsideContainer = styled.div`
   height: 60vh;
   border-top: solid ${Colors.white};
   background-color: ${Colors.primary};
+  opacity: 0.97;
+
 `;
 
 const TextAside = styled.div`
