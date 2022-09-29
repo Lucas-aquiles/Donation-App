@@ -20,7 +20,7 @@ const TextAside = styled.div`
   text-align: justify;
   line-height: 28px;
   letter-spacing: 1px;
-  font-family: "Caveat", cursive, sans-serif;
+  font-family: 'Poppins', cursive, sans-serif;
 `;
 
 const Aside = () => {
