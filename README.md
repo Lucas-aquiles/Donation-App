@@ -10,3 +10,8 @@ Es un pequeño proyecto q esta en construcción.
 
 Deploy : https://donation-app-one.vercel.app/
 
+<div display="flex"  flex-direction: "row"> 
+<img src="https://github.com/Lucas-aquiles/Donation-App/blob/main/src/assets/1.png" width="230" />
+
+<img src="https://github.com/Lucas-aquiles/Donation-App/blob/main/src/assets/2.png" width="230" />
+</div>
