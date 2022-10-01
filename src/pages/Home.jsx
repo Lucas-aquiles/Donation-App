@@ -18,10 +18,13 @@ const HomeContainer = styled.div`
 
 const Home = () => {
   const { info } = useContext(contextApp);
+  const { value4 } = useContext(contextApp);
+  const nameuser = value4[0];
+
 
   return (
     <HomeContainer>
-      <Navbar />
+      <Navbar  nameUser={nameuser}/>
       <MenuExtension />
       <Section />
       <Aside />

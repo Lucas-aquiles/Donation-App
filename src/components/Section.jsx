@@ -30,6 +30,8 @@ const Image = styled.div`
 const Section = () => {
   const text = "ONG";
   const text1 = "USERS";
+
+  
   return (
     <ContainerSection>
       <Image />

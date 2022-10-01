@@ -5,6 +5,8 @@ import { Navbar } from "../components/Navbar";
 import MenuExtension from "../components/menu/MenuExtension";
 import Cards from "../components/Cards";
 import { Modal } from "../components/Modal";
+import {Loading} from "../components/loading/Loading"
+
 
 const ContainerUsers = styled.div`
   width: 100%;
@@ -34,7 +36,8 @@ export default function Users() {
   const setName = value4[1];
   const nameuser = value4[0];
 
-  return (
+  
+return  data.length === 0 ? (<Loading/>) : (
     <ContainerUsers>
       {valueModal && (
         <Modal
@@ -60,4 +63,14 @@ export default function Users() {
       </Children>
     </ContainerUsers>
   );
+
+
+
+
+
+
+
+
+
+
 }

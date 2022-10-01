@@ -1,7 +1,28 @@
 import React from "react";
 import fund from "../assets/patternpad.svg";
 import factory from "../assets/factory.svg";
+import arrowLeft from "../assets/left.svg"
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+
+const ArrowLeft = styled(Link)`
+  background-image: url(${arrowLeft});
+  background-repeat: no-repeat;
+  background-size:contain;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  position: absolute;
+  right: 20px;
+  top:20px;
+  cursor: pointer;
+
+   //mobile
+   @media (max-width: 450px) {
+    width: 30px;
+  height: 30px;  }
+`
 
 const ContainerBuilding = styled.div`
   max-width: 100%;
@@ -81,7 +102,9 @@ const Building = () => {
   return (
     <ContainerBuilding>
       <Image>
-        <Text> Construction Site</Text>
+        <Text> Construction Site      
+</Text>
+<ArrowLeft  Link to ="/" />
       </Image>
     </ContainerBuilding>
   );

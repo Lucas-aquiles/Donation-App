@@ -42,7 +42,7 @@ export const Modal = ({ controlModalLogin, setControlModalLogin }) => {
     <ContainerModal onClick={(e) => closeModal(e)}>
       <Forms
         text={"Login"}
-        text2={"Sign In "}
+        text2={"Sign Up "}
         valuemodal={valueModal}
         setModal={setValueModal}
         setName={setName}

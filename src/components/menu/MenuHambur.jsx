@@ -13,6 +13,7 @@ const ContainerMenu = styled.div`
   right: 15px;
   top: 15px;
   z-index: 10;
+  cursor: pointer;
 `;
 
 const ContainerOpen = styled.div`
