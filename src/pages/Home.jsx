@@ -7,7 +7,6 @@ import { Colors } from "../styles/theme/Colors";
 import React, { useContext, useEffect, useState } from "react";
 import { contextApp } from "../context/Context";
 
-
 import Aside from "../components/Aside";
 
 const HomeContainer = styled.div`
@@ -20,13 +19,12 @@ const HomeContainer = styled.div`
 const Home = () => {
   const { info } = useContext(contextApp);
 
-  
   return (
     <HomeContainer>
       <Navbar />
       <MenuExtension />
       <Section />
-      <Aside/>
+      <Aside />
     </HomeContainer>
   );
 };

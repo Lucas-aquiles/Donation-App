@@ -18,6 +18,13 @@ const Image = styled.div`
   background-size: 100% 100%;
   clip-path: polygon(100% 0, 100% 91%, 66% 100%, 0 84%, 0 0);
   z-index: 10;
+
+  //mobile
+  @media (max-width: 450px) {
+    height: 65vh;
+    background-size:cover
+
+  }
 `;
 
 const Section = () => {

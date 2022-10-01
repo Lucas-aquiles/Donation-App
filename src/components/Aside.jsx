@@ -4,11 +4,16 @@ import { Colors } from "../styles/theme/Colors";
 
 const AsideContainer = styled.div`
   max-width: 100%;
-  height: 60vh;
+  height: auto;
   border-top: solid ${Colors.white};
   background-color: ${Colors.primary};
   opacity: 0.97;
+  padding-bottom: 2rem;
 
+  //mobile
+  @media (max-width: 450px) {
+    height: auto;
+  }
 `;
 
 const TextAside = styled.div`
@@ -20,7 +25,13 @@ const TextAside = styled.div`
   text-align: justify;
   line-height: 28px;
   letter-spacing: 1px;
-  font-family: 'Poppins', cursive, sans-serif;
+  font-family: "Poppins", cursive, sans-serif;
+
+  //mobile
+  @media (max-width: 450px) {
+    width: 71%;
+    font-size: 1rem;
+  }
 `;
 
 const Aside = () => {
@@ -32,7 +43,6 @@ const Aside = () => {
         people in the search for solutions to their problems together with
         others. This moment is less immediate in its effects but more durable,
         which requires work from the planning with the person and the community.
-      
       </TextAside>
     </AsideContainer>
   );

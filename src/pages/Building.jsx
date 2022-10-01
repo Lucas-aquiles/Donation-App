@@ -7,7 +7,17 @@ const ContainerBuilding = styled.div`
   max-width: 100%;
   height: 100vh;
   background-image: url(${fund});
-  
+  background-size: 100% 100%;
+
+
+    //mobile
+    @media (max-width: 450px) {
+      /* background-position: 0%; */
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 50%;
+
+  }
 `;
 const Image = styled.div`
   background-image: url(${factory});
@@ -16,11 +26,18 @@ const Image = styled.div`
   background-size: contain;
   height: 80vh;
   margin: 0px auto;
+     //mobile
+     @media (max-width: 450px) {
+      /* background-position: 0%; */
+      background-size: contain;
+      background-repeat: no-repeat;
+        height: 80%;
+  }
 `;
 
 const Text = styled.p`
   color: white;
-  font-family: "Caveat", cursive, sans-serif;
+  font-family: 'Poppins', cursive, sans-serif;
   font-size: 4vw;
   text-align: center;
   max-width: 100%;
@@ -48,6 +65,15 @@ const Text = styled.p`
       opacity: 0.3;
       transform: scale(1, 1);
     }
+  }
+
+
+       //mobile
+       @media (max-width: 450px) {
+      /* background-position: 0%; */
+      margin-top: 1rem;
+      font-size: 6vw;
+
   }
 `;
 

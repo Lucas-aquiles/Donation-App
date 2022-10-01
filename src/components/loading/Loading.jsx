@@ -1,17 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-
-
-
-const ContainerLoading= styled.div`
-    max-width: 100%;
-    height: 100vh;
-    background-color: #142F54;
-    display: flex;
-    align-items: center;
-`
-
+const ContainerLoading = styled.div`
+  max-width: 100%;
+  height: 100vh;
+  background-color: #142f54;
+  display: flex;
+  align-items: center;
+`;
 
 const Loader = styled.div`
   position: relative;
@@ -74,5 +70,9 @@ const Loader = styled.div`
 `;
 
 export const Loading = () => {
-  return( <ContainerLoading> <Loader></Loader></ContainerLoading> );
+  return (
+    <ContainerLoading>
+      <Loader></Loader>
+    </ContainerLoading>
+  );
 };

@@ -23,7 +23,12 @@ const TextSection = styled.p`
   font-size: 3rem;
   font-weight: 700;
   color: ${Colors.white};
-  font-family: 'Poppins', cursive, sans-serif;
+  font-family: "Poppins", cursive, sans-serif;
+
+  //mobile
+  @media (max-width: 450px) {
+    font-size: 2rem;
+  }
 `;
 
 const StyledLink = styled(Link)`

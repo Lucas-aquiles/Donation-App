@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { contextApp } from "../../context/Context";
+import { Colors } from "../../styles/theme/Colors";
 
 const ContainerMenu = styled.div`
   /* border:solid */
@@ -23,7 +24,7 @@ const ContainerOpen = styled.div`
 const Linea = styled.div`
   width: 50px;
   height: 10px;
-  background-color: beige;
+  background-color:  ${Colors.white};
   margin: 3px 0px;
   transition: 0.4s ease-out;
   transform: ${(props) =>
@@ -35,7 +36,7 @@ const Linea1 = styled(Linea)`
 const Linea2 = styled(Linea)`
   transform: ${(props) =>
     props.primary ? `rotate(45deg) translate(-10px, -15px)` : "null"};
-  background-color: beige;
+  background-color:${Colors.white};
 `;
 
 const MenuHambur = () => {

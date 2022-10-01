@@ -22,13 +22,27 @@ const Title = styled.p`
   font-family: 'Poppins', cursive, sans-serif;
   margin-left: 50px;
 `;
+const Text = styled.p`
+    color: ${Colors.white};
+  font-size: 1rem;
+  font-family: 'Poppins', cursive, sans-serif;
+  margin-left: 5rem;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+`
+const ContainerDiv =styled.div`
+  display: flex;
+`
 
-export const Navbar = () => {
+export const Navbar = ({nameUser}) => {
   return (
     <NavBar>
+      <ContainerDiv>  
       <LinkTitle  to={"/"}> 
       <Title> Hugs  </Title>
      </LinkTitle>
+       {  nameUser&&<Text>Hello {nameUser}</Text>   }  
+     </ContainerDiv>
       <MenuHambur />
       {/* <MenuExtension/> */}
     </NavBar>
