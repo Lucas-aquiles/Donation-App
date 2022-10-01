@@ -5,6 +5,7 @@ Un problema que veo es q conseguir la cuenta bancaria para donar plata se hace m
 Al registrarse las personas podran obtener un plus , que es poder ver información detallada de la institución.
 Es un pequeño proyecto q esta en construcción.
 
+Se utiliza Formik para la realizar el formulario y styled-components para la maquetación. 
 
 
 
