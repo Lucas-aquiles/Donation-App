@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
+import myImage from "../../assets/community.jpg";
 
 const ContainerLoading = styled.div`
   max-width: 100%;
@@ -70,6 +71,14 @@ const Loader = styled.div`
 `;
 
 export const Loading = () => {
+
+
+  useEffect(() => {
+    let imagen=  myImage
+   
+  }, [])
+
+
   return (
     <ContainerLoading>
       <Loader></Loader>
