@@ -1,7 +1,7 @@
 import "./App.css";
 
 // import Home from "./pages/Home";
-import Institution from "./route/Institution.jsx";
+// import Institution from "./route/Institution.jsx";
 // import Users from ';
 import { Routes, Route } from "react-router-dom";
 
@@ -10,6 +10,7 @@ import { Loading } from "./components/loading/Loading";
 
 const Users = lazy(() => import("./route/Users"));
 const Home = lazy(() => import("./pages/Home"));
+const Institution = lazy(() =>import("./route/Institution.jsx"))
 
 function App() {
   return (
