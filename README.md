@@ -5,8 +5,14 @@ Un problema que veo es q conseguir la cuenta bancaria para donar plata se hace m
 Al registrarse las personas podran obtener un plus , que es poder ver información detallada de la institución.
 Es un pequeño proyecto q esta en construcción.
 
+Se utiliza Formik para la realizar el formulario y styled-components para la maquetación. 
 
 
 
 Deploy : https://donation-app-one.vercel.app/
 
+<div display="flex"  flex-direction: "row"> 
+<img src="https://github.com/Lucas-aquiles/Donation-App/blob/main/src/assets/1.png" width="230" />
+
+<img src="https://github.com/Lucas-aquiles/Donation-App/blob/main/src/assets/2.png" width="230" />
+</div>
