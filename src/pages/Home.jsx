@@ -8,7 +8,6 @@ import Aside from "../components/Aside";
 import {Loading} from "../components/loading/Loading"
 
 
-
 const Home = () => {
   const { value4 } = useContext(contextApp);
   const {value2}= useContext(contextApp)
