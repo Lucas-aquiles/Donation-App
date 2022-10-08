@@ -21,18 +21,11 @@ export default function Users() {
   
 return  data.length === 0 ? (<Loading/>) : (
     <ContainerUsers>
-      {valueModal && (
-        <Modal
-          setControlModalLogin={setControlModalLogin}
-          controlModalLogin={controlModalLogin}
-        />
-      )}
+    
 
       <Navbar nameUser={nameuser} />
       <MenuExtension
-        text={"Login"}
-        text2={"Sign Up"}
-        setControlModalLogin={setControlModalLogin}
+        
       />
 
       <Children>

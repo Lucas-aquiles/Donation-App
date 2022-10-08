@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Formik } from "formik";
 import styled from "styled-components";
 import { handleCreateAcount, handleLogin } from "../../service/authFirebase.js";
@@ -9,6 +9,7 @@ const ContainerForm = styled.div`
   height: auto;
   z-index: 9999;
   margin: 0px auto;
+  position:relative;
 
   //mobile
   @media (max-width: 450px) {
@@ -19,6 +20,8 @@ const ContainerForm = styled.div`
     border: solid;
   }
 `;
+
+
 
 const Form = styled.form`
   width: 500px;
@@ -89,9 +92,19 @@ const Text = styled.h1`
   color: ${Colors.primary};
   font-family: "Poppins", cursive, sans-serif;
 `;
+
+const Text1 = styled.h3`
+  color: ${Colors.white};
+  font-family: "Poppins", cursive, sans-serif;
+position: absolute;
+right: 30px;
+bottom: 80px;
+`;
+
 const stopProp = (e) => {
   e.stopPropagation();
 };
+
 
 const Forms = ({
   text,
@@ -100,6 +113,7 @@ const Forms = ({
   setModal,
   setName,
   controlModalLogin,
+  setControlModalLogin,
 }) => (
   //login es text
   <ContainerForm onClick={stopProp}>
@@ -206,6 +220,14 @@ const Forms = ({
         </Form>
       )}
     </Formik>
+
+    {!controlModalLogin&&<Text1
+      onClick={() => {
+        setControlModalLogin(!controlModalLogin);
+      }}
+    >
+      Sign Up
+    </Text1>}
   </ContainerForm>
 );
 

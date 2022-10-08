@@ -13,7 +13,19 @@ const Aside = () => {
         people in the search for solutions to their problems together with
         others. This moment is less immediate in its effects but more durable,
         which requires work from the planning with the person and the community.
+
+        
       </TextAside>
+      <TextAside>
+        Human promotion: Seeks to modify, improve and bring about changes that
+        improve the living conditions of the poorest. It requires incorporating
+        people in the search for solutions to their problems together with
+        others. This moment is less immediate in its effects but more durable,
+        which requires work from the planning with the person and the community.
+
+      
+      </TextAside>
+
     </AsideContainer>
   );
 };

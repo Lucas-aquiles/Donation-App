@@ -10,6 +10,7 @@ export const ContextApp = ({ children }) => {
   const [info, setInfo] = useState(false);
   const [institution, setInstitution] = useState({});
   const [modal, setModal] = useState(false);
+  console.log("caaaaaa",modal)
 const [nameUser,setNameUsers]=useState("")
 
   useEffect(() => {
