@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 import { contextApp } from "../context/Context";
 import { Navbar } from "../components/Navbar";
-import MenuExtension from "../components/menu/MenuExtension";
 import Cards from "../components/Cards";
-import { Modal } from "../components/Modal";
 import {Loading} from "../components/loading/Loading"
 import { ContainerUsers, Children } from "../styles/StyledUsers";
 
@@ -23,10 +21,8 @@ return  data.length === 0 ? (<Loading/>) : (
     <ContainerUsers>
     
 
-      <Navbar nameUser={nameuser} />
-      <MenuExtension
-        
-      />
+      <Navbar nameUser={nameuser} hidden={false} />
+      
 
       <Children>
         {data &&

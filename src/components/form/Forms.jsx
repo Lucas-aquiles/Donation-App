@@ -120,7 +120,7 @@ const Forms = ({
     {controlModalLogin ? <Text>{text2}</Text> : <Text>{text}</Text>}
 
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
+      initialValues={{ name: "", email: "", password: "" , toggle: false }}
       validate={(values) => {
         const errors = {};
         // if (!values.name) {
@@ -214,6 +214,18 @@ const Forms = ({
             />
             {errors.password && touched.password && errors.password}
           </Label>
+          <Label>
+          Are you an institution?
+            <Input
+              type="checkbox"
+              name="toggle"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.toggle}
+            />
+            {errors.password && touched.password && errors.password}
+          </Label>
+          
           <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>

@@ -3,7 +3,7 @@ import MenuHambur from "./menu/MenuHambur";
 import { NavBar ,LinkTitle,Title,Text,ContainerDiv} from "../styles/StyledComponents/StyledNavbar";
 
 
-export const Navbar = ({nameUser}) => {
+export const Navbar = ({nameUser,hidden}) => {
   return (
     <NavBar>
       <ContainerDiv>  
@@ -12,7 +12,7 @@ export const Navbar = ({nameUser}) => {
      </LinkTitle>
        {  nameUser&&<Text>Hello {nameUser}</Text>   }  
      </ContainerDiv>
-      <MenuHambur />
+       {hidden&&<MenuHambur />}
       {/* <MenuExtension/> */}
     </NavBar>
   );

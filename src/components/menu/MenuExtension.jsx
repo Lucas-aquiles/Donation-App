@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Colors } from "../../styles/theme/Colors";
 import { contextApp } from "../../context/Context";
 import {closedSession, veronda} from "../../service/authFirebase"
+import { Link } from "react-router-dom";
 
 
 
@@ -25,6 +26,19 @@ const Text = styled.p`
   width: auto;
   bottom: -30px;
 `;
+export const StyledLink = styled(Link)`
+ color: ${Colors.white};
+  font-family: "Poppins", cursive, sans-serif;
+  font-size: 2rem;
+  display: ${(props) => (props.primary ? "none" : "flex")};
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  bottom: -30px;
+ 
+`;
+
+
 
 const MenuExtension = ({ text, text2, text0, setControlModalLogin }) => {
   const { value, value3,value4 } = useContext(contextApp);
@@ -33,7 +47,7 @@ const MenuExtension = ({ text, text2, text0, setControlModalLogin }) => {
   const info = value[0];
   const nameuser = value4[0];
 const setNameUsers = value4[1]
-
+  const setInfo = value[1];
 
 
 useEffect(() => {
@@ -56,10 +70,13 @@ useEffect(() => {
 
   }
 
+  function closedCicle(){
+    setInfo(false)
+  }
 
   return (
     <ContainterExtension primary={info}>
-      <Text> {text0} </Text>
+      <StyledLink to={"/about"}  onClick={closedCicle}  > {text0} </StyledLink>
 
       {nameuser?null:<Text onClick={changeModal}> {text} </Text>}
       {nameuser?<Text onClick={closed_session}> Log out </Text>:null}

@@ -13,7 +13,6 @@ import Footer from "../components/Footer"
 const Home = () => {
   const { value4 } = useContext(contextApp);
   const [controlModalLogin, setControlModalLogin] = useState(false);
-console.log(controlModalLogin)
   const {value2}= useContext(contextApp)
   const { value3 } = useContext(contextApp);
   let valueModal = value3[0];
@@ -29,7 +28,7 @@ console.log(controlModalLogin)
           controlModalLogin={controlModalLogin}
         />
       )}
-      <Navbar  nameUser={nameuser}/>
+      <Navbar  nameUser={nameuser}  hidden={true}/>
       <MenuExtension   text0={"About us"}    text={"Login"}
         setControlModalLogin={setControlModalLogin}  />
       <Section />
