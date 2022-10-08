@@ -1,7 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile,
+  updateProfile,signOut,onAuthStateChanged
 } from "firebase/auth";
 import { auth } from "./firebase-config";
 
@@ -46,4 +46,25 @@ export function handleLogin(email, password, valuemodal, setModal, setName) {
       alert("error");
       console.log("ver", error.message);
     });
+}
+
+
+
+export function closedSession(){  
+
+signOut(auth).then((r) => {
+  const ver = r
+  console.log(ver)
+  
+ 
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
+}
+export function veronda(){  
+  onAuthStateChanged(auth, (user) => {
+    console.log(user)
+  });
+
 }

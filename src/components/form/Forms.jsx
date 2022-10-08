@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Formik } from "formik";
 import styled from "styled-components";
 import { handleCreateAcount, handleLogin } from "../../service/authFirebase.js";
@@ -9,6 +9,7 @@ const ContainerForm = styled.div`
   height: auto;
   z-index: 9999;
   margin: 0px auto;
+  position:relative;
 
   //mobile
   @media (max-width: 450px) {
@@ -19,6 +20,8 @@ const ContainerForm = styled.div`
     border: solid;
   }
 `;
+
+
 
 const Form = styled.form`
   width: 500px;
@@ -89,9 +92,19 @@ const Text = styled.h1`
   color: ${Colors.primary};
   font-family: "Poppins", cursive, sans-serif;
 `;
+
+const Text1 = styled.h3`
+  color: ${Colors.white};
+  font-family: "Poppins", cursive, sans-serif;
+position: absolute;
+right: 30px;
+bottom: 80px;
+`;
+
 const stopProp = (e) => {
   e.stopPropagation();
 };
+
 
 const Forms = ({
   text,
@@ -100,13 +113,14 @@ const Forms = ({
   setModal,
   setName,
   controlModalLogin,
+  setControlModalLogin,
 }) => (
   //login es text
   <ContainerForm onClick={stopProp}>
     {controlModalLogin ? <Text>{text2}</Text> : <Text>{text}</Text>}
 
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
+      initialValues={{ name: "", email: "", password: "" , toggle: false }}
       validate={(values) => {
         const errors = {};
         // if (!values.name) {
@@ -200,12 +214,32 @@ const Forms = ({
             />
             {errors.password && touched.password && errors.password}
           </Label>
+          <Label>
+          Are you an institution?
+            <Input
+              type="checkbox"
+              name="toggle"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.toggle}
+            />
+            {errors.password && touched.password && errors.password}
+          </Label>
+          
           <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>
         </Form>
       )}
     </Formik>
+
+    {!controlModalLogin&&<Text1
+      onClick={() => {
+        setControlModalLogin(!controlModalLogin);
+      }}
+    >
+      Sign Up
+    </Text1>}
   </ContainerForm>
 );
 

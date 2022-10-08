@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 import { contextApp } from "../context/Context";
 import { Navbar } from "../components/Navbar";
-import MenuExtension from "../components/menu/MenuExtension";
 import Cards from "../components/Cards";
-import { Modal } from "../components/Modal";
 import {Loading} from "../components/loading/Loading"
 import { ContainerUsers, Children } from "../styles/StyledUsers";
 
@@ -21,19 +19,10 @@ export default function Users() {
   
 return  data.length === 0 ? (<Loading/>) : (
     <ContainerUsers>
-      {valueModal && (
-        <Modal
-          setControlModalLogin={setControlModalLogin}
-          controlModalLogin={controlModalLogin}
-        />
-      )}
+    
 
-      <Navbar nameUser={nameuser} />
-      <MenuExtension
-        text={"Login"}
-        text2={"Sign Up"}
-        setControlModalLogin={setControlModalLogin}
-      />
+      <Navbar nameUser={nameuser} hidden={false} />
+      
 
       <Children>
         {data &&

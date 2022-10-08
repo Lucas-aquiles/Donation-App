@@ -11,6 +11,8 @@ import { Loading } from "./components/loading/Loading";
 const Users = lazy(() => import("./route/Users"));
 const Home = lazy(() => import("./pages/Home"));
 const Institution = lazy(() =>import("./route/Institution.jsx"))
+const About= lazy(()=>import("./pages/AboutUs"))
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/institution" element={<Institution />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/about" element={<About/>}/>
       </Routes>
     </Suspense>
   );
