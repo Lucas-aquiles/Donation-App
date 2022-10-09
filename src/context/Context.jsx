@@ -9,12 +9,14 @@ export const contextApp = createContext();
 export const ContextApp = ({ children }) => {
   const [info, setInfo] = useState(false);
   const [institution, setInstitution] = useState({});
+  const [users, setUsers] = useState({})
+  console.log(users)
   const [modal, setModal] = useState(false);
-  console.log("caaaaaa",modal)
 const [nameUser,setNameUsers]=useState("")
 
   useEffect(() => {
     getData(db);
+    getDataUsers(db)
   }, []);
 
   async function getData(db) {
@@ -24,6 +26,17 @@ const [nameUser,setNameUsers]=useState("")
     setInstitution(institutionList);
     return institutionList;
   }
+
+async function getDataUsers(db) {
+    const institutionCol = collection(db, "users");
+    const institutionSnapshot = await getDocs(institutionCol);
+    const institutionList = institutionSnapshot.docs.map((doc) => doc.data());
+    setUsers(institutionList);
+    return institutionList;
+  }
+
+
+
 
   return (
     <contextApp.Provider

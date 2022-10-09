@@ -2,7 +2,7 @@ import React, { useContext, useState,useEffect} from "react";
 import styled from "styled-components";
 import { Colors } from "../../styles/theme/Colors";
 import { contextApp } from "../../context/Context";
-import {closedSession, veronda} from "../../service/authFirebase"
+import {closedSession,veronda} from "../../service/authFirebase"
 import { Link } from "react-router-dom";
 
 
@@ -51,7 +51,7 @@ const setNameUsers = value4[1]
 
 
 useEffect(() => {
-  
+  veronda()
 }, [nameuser,stateModal])
 
 

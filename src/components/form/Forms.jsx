@@ -149,6 +149,7 @@ const Forms = ({
                 values.email,
                 values.password,
                 values.name,
+                values.toggle,
                 valuemodal,
                 setModal,
                 setName
@@ -214,7 +215,7 @@ const Forms = ({
             />
             {errors.password && touched.password && errors.password}
           </Label>
-          <Label>
+          {controlModalLogin?<Label>
           Are you an institution?
             <Input
               type="checkbox"
@@ -224,7 +225,7 @@ const Forms = ({
               value={values.toggle}
             />
             {errors.password && touched.password && errors.password}
-          </Label>
+          </Label>:null}
           
           <Button type="submit" disabled={isSubmitting}>
             Submit

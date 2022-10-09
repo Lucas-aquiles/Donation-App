@@ -3,17 +3,21 @@ import {
   signInWithEmailAndPassword,
   updateProfile,signOut,onAuthStateChanged
 } from "firebase/auth";
-import { auth } from "./firebase-config";
+import { auth,db } from "./firebase-config";
+import {collection, doc,setDoc} from "firebase/firestore"
+
+
 
 export function handleCreateAcount(
   email,
   password,
   name,
+  toggle,
   valuemodal,
   setModal,
   setName
 ) {
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password, toggle)
     .then((userCredential) => {
       // Signed in
       updateProfile(userCredential.user, {
@@ -22,6 +26,16 @@ export function handleCreateAcount(
       alert("user create");
       setName(name);
       setModal(!valuemodal);
+      if(toggle){ setDoc(doc(db,"users",userCredential.user.uid ),{
+        role:"ONGS",
+        id:userCredential.user.uid
+         
+    })      }else{setDoc(doc(db,"users",userCredential.user.uid ),{
+      role:"USERS",
+      id:userCredential.user.uid
+    }
+    )}
+
     })
     .catch((error) => {
       alert("error user");
@@ -64,7 +78,8 @@ signOut(auth).then((r) => {
 }
 export function veronda(){  
   onAuthStateChanged(auth, (user) => {
-    console.log(user)
+    // console.log(user.reloadUserInfo.localId
+    //   )
   });
 
 }
