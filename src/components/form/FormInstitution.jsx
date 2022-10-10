@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { Formik } from "formik";
 import styled from "styled-components";
-import { handleCreateAcount, handleLogin } from "../../service/authFirebase.js";
 import { Colors } from "../../styles/theme/Colors";
 
 const ContainerForm = styled.div`
@@ -29,9 +28,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid;
   background-color: ${Colors.primary};
-  padding: 4rem;
+  padding: 1rem;
   z-index: 999999;
   cursor: default;
   //mobile
@@ -107,19 +105,14 @@ const stopProp = (e) => {
 
 
 const FormInstitution = ({
-  text,
-  text2,
-  valuemodal,
-  setModal,
-  setName,
-  setControlModalLogin,
+    userId,
+  setFormState
 }) => (
   //login es text
   <ContainerForm onClick={stopProp}>
-     <Text>{text2}</Text> 
 
     <Formik
-      initialValues={{ name: "", cbu: "" , addres:"", description:"",image:"",localidad:""}}
+      initialValues={{ name: "", cbu: "" , addres:"", description:"",image:"",localidad:"",id:userId}}
       validate={(values) => {
         const errors = {};
         if (!values.name) {
@@ -146,18 +139,10 @@ const FormInstitution = ({
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-
-            //  handleCreateAcount(
-            //     values.email,
-            //     values.password,
-            //     values.name,
-            //     values.toggle,
-            //     valuemodal,
-            //     setModal,
-            //     setName
-            //   )
-            
+        //   console.log(JSON.stringify(values, null, 2));
+          setFormState(values
+          )
+           
 
           setSubmitting(false);
         }, 400);
