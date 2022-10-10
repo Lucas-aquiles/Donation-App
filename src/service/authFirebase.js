@@ -76,10 +76,3 @@ signOut(auth).then((r) => {
   // An error happened.
 });
 }
-export function veronda(){  
-  onAuthStateChanged(auth, (user) => {
-    // console.log(user.reloadUserInfo.localId
-    //   )
-  });
-
-}

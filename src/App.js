@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 
 import React, { Suspense, lazy } from "react";
 import { Loading } from "./components/loading/Loading";
+import Building from "./pages/Building";
 
 const Users = lazy(() => import("./route/Users"));
 const Home = lazy(() => import("./pages/Home"));
@@ -22,6 +23,12 @@ function App() {
         <Route path="/institution" element={<Institution />} />
         <Route path="/users" element={<Users />} />
         <Route path="/about" element={<About/>}/>
+        <Route
+      path="*"
+      element={
+       <Building/>
+      }
+    />
       </Routes>
     </Suspense>
   );

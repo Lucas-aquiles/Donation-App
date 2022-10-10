@@ -1,6 +1,9 @@
 import { useState, createContext, useEffect } from "react";
-import { db } from "../service/firebase-config";
+import { db,auth } from "../service/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
+import {
+  onAuthStateChanged
+} from "firebase/auth";
 //intermediario
 
 export const contextApp = createContext();
@@ -10,13 +13,13 @@ export const ContextApp = ({ children }) => {
   const [info, setInfo] = useState(false);
   const [institution, setInstitution] = useState({});
   const [users, setUsers] = useState({})
-  console.log(users)
   const [modal, setModal] = useState(false);
 const [nameUser,setNameUsers]=useState("")
 
   useEffect(() => {
     getData(db);
-    getDataUsers(db)
+    listener()
+    // getDataUsers(db)
   }, []);
 
   async function getData(db) {
@@ -27,15 +30,22 @@ const [nameUser,setNameUsers]=useState("")
     return institutionList;
   }
 
-async function getDataUsers(db) {
-    const institutionCol = collection(db, "users");
-    const institutionSnapshot = await getDocs(institutionCol);
-    const institutionList = institutionSnapshot.docs.map((doc) => doc.data());
-    setUsers(institutionList);
-    return institutionList;
-  }
+// async function getDataUsers(db) {
+//     const institutionCol = collection(db, "users");
+//     const institutionSnapshot = await getDocs(institutionCol);
+//     const institutionList = institutionSnapshot.docs.map((doc) => doc.data());
+//     setUsers(institutionList);
+//     return institutionList;
+//   }
 
+    function listener(){  
+  onAuthStateChanged(auth, (user) => {
+      console.log(user?.reloadUserInfo.localId)
+    setUsers(user?.reloadUserInfo.localId)
+    //   )
+  });
 
+}
 
 
   return (
@@ -44,7 +54,8 @@ async function getDataUsers(db) {
         value: [info, setInfo],
         value2: [institution, setInstitution],
         value3: [modal, setModal],
-        value4:[nameUser,setNameUsers]
+        value4:[nameUser,setNameUsers],
+        value5:[users,setUsers]
       }}
     >
       {children}

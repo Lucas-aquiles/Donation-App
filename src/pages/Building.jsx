@@ -11,7 +11,7 @@ const Building = () => {
     <ContainerBuilding>
       <Image>
         <Text> Construction Site</Text>
-        <ArrowLeft Link to="/" />
+        <ArrowLeft to="/" />
       </Image>
     </ContainerBuilding>
   );

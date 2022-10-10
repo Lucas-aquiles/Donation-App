@@ -19,6 +19,11 @@ export const Title = styled.p`
   font-size: 3rem;
   font-family: 'Poppins', cursive, sans-serif;
   margin-left: 50px;
+  //mobile
+ @media (max-width: 450px) {
+    font-size: 2rem;
+   margin-left: 9px;
+  }
 `;
 export const Text = styled.p`
     color: ${Colors.white};
