@@ -23,10 +23,10 @@ const ContainerForm = styled.div`
 
 
 const Form = styled.form`
-  width: 500px;
+  width: auto;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   background-color: ${Colors.primary};
   padding: 1rem;
@@ -85,19 +85,12 @@ const Button = styled.button`
     width: 80%;
   }
 `;
+const Div =styled.div`
+  width: 400px;
+`
 
-const Text = styled.h1`
-  color: ${Colors.primary};
-  font-family: "Poppins", cursive, sans-serif;
-`;
 
-const Text1 = styled.h3`
-  color: ${Colors.white};
-  font-family: "Poppins", cursive, sans-serif;
-position: absolute;
-right: 30px;
-bottom: 80px;
-`;
+// ------------------------------------------------ //
 
 const stopProp = (e) => {
   e.stopPropagation();
@@ -106,13 +99,14 @@ const stopProp = (e) => {
 
 const FormInstitution = ({
     userId,
-  setFormState
+    addInstitution,
+    setFormState
 }) => (
   //login es text
   <ContainerForm onClick={stopProp}>
 
     <Formik
-      initialValues={{ name: "", cbu: "" , addres:"", description:"",image:"",localidad:"",id:userId}}
+      initialValues={{ name: "", cbu: "" , address:"", description:"",image:"",localidad:"",id:userId}}
       validate={(values) => {
         const errors = {};
         if (!values.name) {
@@ -121,8 +115,8 @@ const FormInstitution = ({
         if (!values.cbu) {
             errors.cbu = "Required";
           }
-          if (!values.addres) {
-            errors.addres = "Required";
+          if (!values.address) {
+            errors.address = "Required";
           }
           if (!values.description) {
             errors.description = "Required";
@@ -140,9 +134,9 @@ const FormInstitution = ({
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
         //   console.log(JSON.stringify(values, null, 2));
-          setFormState(values
+        addInstitution(values
           )
-           
+          setFormState({})
 
           setSubmitting(false);
         }, 400);
@@ -159,6 +153,7 @@ const FormInstitution = ({
         /* and other goodies */
       }) => (
         <Form onSubmit={handleSubmit}>
+          <Div> 
             <Label>
               Name
               <Input
@@ -194,7 +189,9 @@ const FormInstitution = ({
               />
               {errors.cbu && touched.cbu && errors.cbu}
             </Label>
+            </Div>
 
+            <Div>  
             <Label>
               Load Image
               <Input
@@ -218,21 +215,22 @@ const FormInstitution = ({
               {errors.localidad && touched.localidad && errors.localidad}
             </Label>
             <Label>
-              Addres
+              Address
               <Input
                 type="text"
-                name="addres"
+                name="address"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.addres}
+                value={values.address}
               />
-              {errors.addres && touched.addres && errors.addres}
+              {errors.address && touched.address && errors.address}
             </Label>
           
           
           <Button type="submit" disabled={isSubmitting}>
             Submit
           </Button>
+          </Div>
         </Form>
       )}
     </Formik>

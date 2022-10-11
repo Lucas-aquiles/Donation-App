@@ -1,5 +1,14 @@
-import { db,auth } from "../service/firebase-config";
-import { collection, getDocs,addDoc,  where,query,doc, deleteDoc,setDoc } from "firebase/firestore";
+import { db, auth } from "../service/firebase-config";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  where,
+  query,
+  doc,
+  deleteDoc,
+  setDoc,
+} from "firebase/firestore";
 import React, { useEffect, useState, useContext } from "react";
 import Building from "../pages/Building";
 import { Loading } from "../components/loading/Loading";
@@ -11,40 +20,54 @@ import { Colors } from "../styles/theme/Colors";
 import { Navbar } from "../components/Navbar";
 import FormInstitution from "../components/form/FormInstitution";
 
-
-
 const Container = styled.div`
   width: 100%;
-  height:auto;
+  height: 100vh;
   background-color: ${Colors.secundary};
 `;
 const ChildrenContainer = styled.div`
   width: 100%;
   height: auto;
   padding-top: 7rem;
+  padding-left: 2rem;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
 `;
 const Text = styled.p`
-  font-size: 2rem;
-  font-family: 'Poppins', cursive, sans-serif;
-  color:${Colors.white};
-  padding: 1rem;
+  font-size: 1.1rem;
+  font-family: "Poppins", cursive, sans-serif;
+  color: ${Colors.white};
+`;
+const ButtonText = styled(Text)`
   cursor: pointer;
-  margin: 1rem;
+`;
 
-`
+const ContainerInstitution = styled.div`
+  width: 35%;
+  height: auto;
+  border: solid white 1px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+`;
+const Image = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+const Div = styled.div`
+  margin-left: 1rem;
+  margin-top: 1rem;
+`;
 
-
-
+// --------------------------------------------------------------------------------------//
 export default function Intitution() {
   let navigate = useNavigate();
 
   const [state, setState] = useState({});
-  const [formState,setFormState] = useState({})
-const [data,setData]=useState({})
-console.log(data)
+  const [formState, setFormState] = useState({});
+  const [data, setData] = useState({});
+  console.log(data,"mmmmmmmm")
   const [permit, setPermit] = useState(false);
   const { value5 } = useContext(contextApp);
   const userId = value5[0];
@@ -53,22 +76,18 @@ console.log(data)
     // getData(db);
     if (userId !== undefined) {
       foundUser();
-      loadData()
-
+      loadData();
     } else {
       navigate("/");
       alert("You do not have a permit");
     }
   }, []);
 
-useEffect(()=>{
-  if(formState?.name){ 
-  // addInstitution()
-  loadData()
-
-  }
-},[formState])
-
+  useEffect(() => {
+    if (formState) {
+      loadData();
+    }
+  }, [formState]);
 
   async function getData(db) {
     const usersCol = collection(db, "users");
@@ -90,54 +109,45 @@ useEffect(()=>{
   }
 
 
-
-
-
-
-  const docData = formState
-     
-    
-  ;
-  async function addInstitution() {
+  async function addInstitution(docData) {
     const response = await addDoc(collection(db, "institution"), docData);
-    alert("His institution was loaded with success")
+    alert("His institution was loaded with success");
   }
 
+  //function firebase
+  async function loadData() {
+    const collectionRef = collection(db, "institution");
+    const institution = query(
+      collectionRef,
+      //----------------------------------------------//
+      where("id", "==", `${userId}`)
+    );
+    const queryInstitution = await getDocs(institution);
+    let institutionData = [];
+    queryInstitution.forEach((doc) => {
+      institutionData.push({ id: doc.id, data: doc.data() });
+    });
+    setData(institutionData);
+  }
 
+  // ----------------------------------------------------//
+  async function deleteInstitution() {
+    await deleteDoc(doc(db, "institution", data[0]?.id));
+    setData({});
+    setFormState({})
+  }
 
-
-
-//function firebase
-async function loadData() {
-  const collectionRef = collection(db, "institution");
-  const institution = query(
-    collectionRef,
-    //----------------------------------------------//
-    where("id", "==", `${userId}`)
-  );
-  const queryInstitution = await getDocs(institution);
-  let institutionData = [];
-  queryInstitution.forEach((doc) => {
-    institutionData.push({ id: doc.id, data: doc.data() });
-  });
-  setData(institutionData);
-}
-
-// ----------------------------------------------------//
-async function deleteInstitution(){         
-await deleteDoc(doc(db, "institution", "pr5RrVlwKmvnGSRnlNm0"));
-}
-
-// ----------------------------
-async function modificationInstitution(){
-  const cityRef = doc(db, 'institution', "pr5RrVlwKmvnGSRnlNm0");
-setDoc(cityRef, { name: "Los Alamos",
-      description: "Ayudamos a la gente"
-}, { merge: true });
-}
-
-
-
+  // ----------------------------
+  async function modificationInstitution() {
+    const cityRef = doc(db, "institution", data[0]?.id);
+    setDoc(
+      cityRef,
+      { name: "Los Alamos", description: "Ayudamos a la gente" },
+      { merge: true }
+    );
+    setData({});
+    setFormState({})
+  }
 
   return permit ? (
     <Container>
@@ -145,12 +155,33 @@ setDoc(cityRef, { name: "Los Alamos",
       <ChildrenContainer>
         <Text>Here you can upload information about the institution. </Text>
 
-        { (data.length ===0)&& <FormInstitution   userId={userId} setFormState={setFormState}/>}
-        {data&&<Text>-{data.length} two institutions are registered </Text>}
-        <Text >Here you can modify or delete information about the institution. </Text>
-        <Text onClick={deleteInstitution}>Delete</Text>
-        <Text onClick={modificationInstitution}>add</Text>
+        {(data.length === 0 || data === {}) && (
+          <FormInstitution userId={userId}  addInstitution={addInstitution}  setFormState={setFormState}/>
+        )}
+        {data && <Text>-{data.length} institutions are registered </Text>}
+        {data.length === 1 && (
+          <ContainerInstitution>
+            <Image src={data[0]?.data.image} />
+            <Div>
+              <Text> Institution: {data[0]?.data?.name} </Text>
+              <Text> Description: {data[0]?.data?.description} </Text>
+              <Text> Count Bancary: {data[0]?.data?.cbu} </Text>
+              <Text> Addres: {data[0]?.data?.address} </Text>
+              <Text> Localidad: {data[0]?.data?.localidad} </Text>
+            </Div>
+          </ContainerInstitution>
+        )}
 
+        {data.length === 1 && (
+          <Text>
+            Here you can modify or delete information about the institution.
+          </Text>
+        )}
+        {data.length === 1 && <ButtonText onClick={deleteInstitution}>Delete information</ButtonText>}
+        {data.length === 1 && (
+          <ButtonText onClick={modificationInstitution}>Modify information
+          </ButtonText>
+        )}
       </ChildrenContainer>
     </Container>
   ) : (
