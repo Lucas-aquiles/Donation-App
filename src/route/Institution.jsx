@@ -41,6 +41,16 @@ const Text = styled.p`
 `;
 const ButtonText = styled(Text)`
   cursor: pointer;
+  opacity: 0.9;
+  border:solid 2px;
+  width: 9rem;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  &:hover{
+    background-color: ${Colors.primary};;
+  }
 `;
 
 const ContainerInstitution = styled.div`
@@ -59,6 +69,16 @@ const Div = styled.div`
   margin-left: 1rem;
   margin-top: 1rem;
 `;
+const ChildrenContainerTwo = styled.div`
+  position: absolute;
+  width: 50%;
+  top: 20%;
+  right: 2%;
+`;
+ const Flexdiv= styled.div`
+  display: flex;
+  flex-direction: row;
+ `
 
 // --------------------------------------------------------------------------------------//
 export default function Intitution() {
@@ -67,10 +87,15 @@ export default function Intitution() {
   const [state, setState] = useState({});
   const [formState, setFormState] = useState({});
   const [data, setData] = useState({});
-  console.log(data,"mmmmmmmm")
+  const [modalForm, setModalForm] = useState(false);
   const [permit, setPermit] = useState(false);
-  const { value5 } = useContext(contextApp);
+  const { value5,value6 } = useContext(contextApp);
   const userId = value5[0];
+  const setRefresh = value6[1]
+
+
+
+
 
   useEffect(() => {
     // getData(db);
@@ -80,6 +105,9 @@ export default function Intitution() {
     } else {
       navigate("/");
       alert("You do not have a permit");
+    }
+    return () => {
+      setRefresh({})
     }
   }, []);
 
@@ -108,7 +136,6 @@ export default function Intitution() {
     }
   }
 
-
   async function addInstitution(docData) {
     const response = await addDoc(collection(db, "institution"), docData);
     alert("His institution was loaded with success");
@@ -134,19 +161,23 @@ export default function Intitution() {
   async function deleteInstitution() {
     await deleteDoc(doc(db, "institution", data[0]?.id));
     setData({});
-    setFormState({})
+    setFormState({});
   }
 
   // ----------------------------
-  async function modificationInstitution() {
+  function modalFormOpen() {
+    setModalForm(!modalForm);
+  }
+
+  async function modificationInstitution(values) {
+    console.log(values);
+    console.log(data[0]?.id);
     const cityRef = doc(db, "institution", data[0]?.id);
-    setDoc(
-      cityRef,
-      { name: "Los Alamos", description: "Ayudamos a la gente" },
-      { merge: true }
-    );
+    setDoc(cityRef, values, { merge: true });
     setData({});
-    setFormState({})
+    setFormState({});
+    alert("His institution was loaded with success");
+
   }
 
   return permit ? (
@@ -156,7 +187,12 @@ export default function Intitution() {
         <Text>Here you can upload information about the institution. </Text>
 
         {(data.length === 0 || data === {}) && (
-          <FormInstitution userId={userId}  addInstitution={addInstitution}  setFormState={setFormState}/>
+          <FormInstitution
+            modalForm={modalForm}
+            userId={userId}
+            addInstitution={addInstitution}
+            setFormState={setFormState}
+          />
         )}
         {data && <Text>-{data.length} institutions are registered </Text>}
         {data.length === 1 && (
@@ -177,12 +213,26 @@ export default function Intitution() {
             Here you can modify or delete information about the institution.
           </Text>
         )}
-        {data.length === 1 && <ButtonText onClick={deleteInstitution}>Delete information</ButtonText>}
         {data.length === 1 && (
-          <ButtonText onClick={modificationInstitution}>Modify information
+          <Flexdiv>  
+          <ButtonText onClick={deleteInstitution}>
+            Delete information
           </ButtonText>
+           <ButtonText onClick={modalFormOpen}>Modify information</ButtonText>
+           </Flexdiv>
         )}
+     
       </ChildrenContainer>
+      {modalForm && (
+        <ChildrenContainerTwo>
+          <FormInstitution
+            setModalForm={setModalForm}
+            userId={userId}
+            modalForm={modalForm}
+            modificationInstitution={modificationInstitution}
+          />
+        </ChildrenContainerTwo>
+      )}
     </Container>
   ) : (
     <Loading />

@@ -15,12 +15,17 @@ export const ContextApp = ({ children }) => {
   const [users, setUsers] = useState({})
   const [modal, setModal] = useState(false);
 const [nameUser,setNameUsers]=useState("")
+const [refresh,setRefresh]= useState({})
 
   useEffect(() => {
     getData(db);
     listener()
     // getDataUsers(db)
-  }, []);
+    console.log("me setoy ejecutando")
+  }, [refresh]);
+
+
+
 
   async function getData(db) {
     const institutionCol = collection(db, "institution");
@@ -55,7 +60,8 @@ const [nameUser,setNameUsers]=useState("")
         value2: [institution, setInstitution],
         value3: [modal, setModal],
         value4:[nameUser,setNameUsers],
-        value5:[users,setUsers]
+        value5:[users,setUsers],
+        value6:[refresh,setRefresh]
       }}
     >
       {children}

@@ -100,14 +100,17 @@ const stopProp = (e) => {
 const FormInstitution = ({
     userId,
     addInstitution,
-    setFormState
+    setFormState,
+    modalForm,
+    modificationInstitution,
+    setModalForm
 }) => (
   //login es text
   <ContainerForm onClick={stopProp}>
 
     <Formik
       initialValues={{ name: "", cbu: "" , address:"", description:"",image:"",localidad:"",id:userId}}
-      validate={(values) => {
+         validate={(values) => {
         const errors = {};
         if (!values.name) {
           errors.name = "Required";
@@ -131,15 +134,29 @@ const FormInstitution = ({
 
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-        //   console.log(JSON.stringify(values, null, 2));
-        addInstitution(values
-          )
-          setFormState({})
 
+      onSubmit={(values, { setSubmitting }) => {
+        modalForm === false && setTimeout(() => {
+        // alert(JSON.stringify(values, null, 2));
+            addInstitution(values)
+            setFormState({})
+          
           setSubmitting(false);
         }, 400);
+
+
+          modalForm && setTimeout(() => {
+          // alert(JSON.stringify(values, null, 2));
+               modificationInstitution(values)
+              setModalForm(false)
+               setFormState({})
+  
+            setSubmitting(false);
+          }, 400);
+
+
+
+
       }}
     >
       {({
