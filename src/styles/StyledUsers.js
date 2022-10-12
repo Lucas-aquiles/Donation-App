@@ -12,7 +12,8 @@ export const Children = styled.div`
   height: auto;
   margin: 0px auto;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+
   padding-top: 100px;
        //mobile
        @media (max-width: 450px) {

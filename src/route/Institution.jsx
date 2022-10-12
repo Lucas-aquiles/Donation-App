@@ -24,15 +24,21 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${Colors.secundary};
+   //mobile
+   @media (max-width: 450px) {
+    /* background-position: 0%; */
+    height: auto;
+  }
 `;
 const ChildrenContainer = styled.div`
   width: 100%;
-  height: auto;
+  height: 100vh;
   padding-top: 7rem;
   padding-left: 2rem;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 const Text = styled.p`
   font-size: 1.1rem;
@@ -51,6 +57,11 @@ const ButtonText = styled(Text)`
   &:hover{
     background-color: ${Colors.primary};;
   }
+  //mobile
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+  margin: 1rem;
+  }
 `;
 
 const ContainerInstitution = styled.div`
@@ -60,10 +71,21 @@ const ContainerInstitution = styled.div`
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
+  //mobile
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+    width: 90%;
+    align-items: center;
+  }
 `;
 const Image = styled.img`
   width: 200px;
   height: 200px;
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+    width: 100px;
+    height: 100px;
+  }
 `;
 const Div = styled.div`
   margin-left: 1rem;
@@ -74,10 +96,24 @@ const ChildrenContainerTwo = styled.div`
   width: 50%;
   top: 20%;
   right: 2%;
+  //mobile
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+    position: relative;
+    top: -100px;
+    left: 50px;
+    
+  }
+
 `;
  const Flexdiv= styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+    width: 90%;
+    justify-content: center;
+  }
  `
 
 // --------------------------------------------------------------------------------------//

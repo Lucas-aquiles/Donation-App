@@ -13,10 +13,9 @@ const ContainerForm = styled.div`
   //mobile
   @media (max-width: 450px) {
     width: auto;
-    height: 500px;
+    height: 600px;
     position: relative;
-    top: 100px;
-    border: solid;
+    top: 50px;
   }
 `;
 
@@ -35,7 +34,9 @@ const Form = styled.form`
   //mobile
   @media (max-width: 450px) {
     width: 300px;
-    height: 400px;
+    height:auto;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 const Label = styled.label`
@@ -50,7 +51,8 @@ const Label = styled.label`
   font-size: 1.3rem;
   //mobile
   @media (max-width: 450px) {
-    width: 150%;
+    width: 90%;
+    margin: 0px auto
   }
 `;
 const Input = styled.input`
@@ -81,12 +83,23 @@ const Button = styled.button`
   //mobile
   @media (max-width: 450px) {
     font-size: 1rem;
-    margin-top: 1rem;
     width: 80%;
+    margin: 0px auto;
+    border:solid;
+    position: relative;
+    left: 30px;
+    top:10px
   }
 `;
 const Div =styled.div`
   width: 400px;
+  //mobile
+  @media (max-width: 450px) {
+    /* background-position: 0%; */
+    width: 300px;
+
+    
+  }
 `
 
 

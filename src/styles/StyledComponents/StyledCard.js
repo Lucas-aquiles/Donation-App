@@ -3,10 +3,11 @@ import icons from "../../assets/copy.svg";
 import { Colors } from "../theme/Colors";
 
 export const ContainerFather = styled.div`
-  width: 40%;
+  width: 30%;
   height: auto;
   border: solid ${Colors.secundary};
   padding: 1rem;
+  margin: 1rem;
 
   //mobile
   @media (max-width: 450px) {
