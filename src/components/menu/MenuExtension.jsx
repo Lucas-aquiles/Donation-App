@@ -57,7 +57,6 @@ useEffect(() => {
   function changeModal() {
     setStateModal(!stateModal);
     setModal(true);
-    console.log("mamam")
   }
 
 

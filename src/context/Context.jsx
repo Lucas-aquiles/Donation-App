@@ -21,7 +21,6 @@ const [refresh,setRefresh]= useState({})
     getData(db);
     listener()
     // getDataUsers(db)
-    console.log("me setoy ejecutando")
   }, [refresh]);
 
 
@@ -45,7 +44,6 @@ const [refresh,setRefresh]= useState({})
 
     function listener(){  
   onAuthStateChanged(auth, (user) => {
-      console.log(user?.reloadUserInfo.localId)
     setUsers(user?.reloadUserInfo.localId)
     //   )
   });

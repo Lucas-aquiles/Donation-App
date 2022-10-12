@@ -41,10 +41,4 @@ return  data.length === 0 ? (<Loading/>) : (
 
 
 
-
-
-
-
-
-
 }

@@ -111,7 +111,6 @@ const SectionEnd = styled.div`
 const AboutUs = () => {
   const { value4 } = useContext(contextApp);
   const nameuser = value4[0];
-  console.log(nameuser)
 
   return (
     <ContainterExtension>

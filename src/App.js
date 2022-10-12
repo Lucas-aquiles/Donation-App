@@ -1,10 +1,5 @@
 import "./App.css";
-
-// import Home from "./pages/Home";
-// import Institution from "./route/Institution.jsx";
-// import Users from ';
 import { Routes, Route } from "react-router-dom";
-
 import React, { Suspense, lazy } from "react";
 import { Loading } from "./components/loading/Loading";
 import Building from "./pages/Building";
@@ -24,9 +19,9 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/about" element={<About/>}/>
         <Route
-      path="*"
-      element={
-       <Building/>
+             path="*"
+            element={
+            <Building/>
       }
     />
       </Routes>

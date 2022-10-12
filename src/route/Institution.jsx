@@ -206,8 +206,6 @@ export default function Intitution() {
   }
 
   async function modificationInstitution(values) {
-    console.log(values);
-    console.log(data[0]?.id);
     const cityRef = doc(db, "institution", data[0]?.id);
     setDoc(cityRef, values, { merge: true });
     setData({});

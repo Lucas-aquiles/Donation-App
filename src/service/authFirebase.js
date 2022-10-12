@@ -46,7 +46,6 @@ export function handleCreateAcount(
 }
 
 export function handleLogin(email, password, valuemodal, setModal, setName) {
-  console.log("qqqqqqqqq", email);
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -68,7 +67,6 @@ export function closedSession(){
 
 signOut(auth).then((r) => {
   const ver = r
-  console.log(ver)
   
  
   // Sign-out successful.
