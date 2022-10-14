@@ -1,5 +1,5 @@
 # Donation-App
-Se desarrolla una pequeña app en react js y firebase. La idea de la app es que tanto las instituciones de la sociedad civil y las personas se puedan vincular. 
+Se desarrolla una pequeña app en react js (styled-components -maquetacion)y firebase. La idea de la app es que tanto las instituciones de la sociedad civil y las personas se puedan vincular. 
 Tanto los usuarios como las instituciones podran inscribirse en la base de datos.
 Los usuarios podran copiar la cuenta bancaria  y por medio de una billetera digital pagar( la app no incluye billetera digital)
 Al registrarse las personas podran obtener un plus , que es poder ver información detallada de la institución.
